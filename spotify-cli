@@ -73,6 +73,7 @@ def control_volume(volumeAbsolute):
     try:
         curr_volume = read_spotify_property('Volume')
         new_volume = curr_volume + volumeAbsolute
+        new_volume = min(1, max(0,new_volume))
         # TODO: property is not written for some reason.
         write_spotify_property('Volume',new_volume)
     except:
